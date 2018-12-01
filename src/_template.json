@@ -1,0 +1,5 @@
+{
+  <% _.each(glyphs, function(glyph, index) {
+    {%>"<%= glyph.name %>": "<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>"<%} if (index !== glyphs.length - 1) {%>,<%}
+  });%>
+}

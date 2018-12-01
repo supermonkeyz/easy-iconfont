@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <title>
+    <%= fontName %>
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Slab" rel="stylesheet">
+  <link href="./<%= outputName %>.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+
+    body {
+      text-align: center;
+      background-color: #f8f9fa;
+      font-size: 24px;
+    }
+
+    body h1 {
+      color: #495057;
+      margin: 1em 0;
+      font-family: 'Pacifico';
+      font-weight: 400;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .iconfont-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 10vw;
+    }
+
+    .iconfont-list-item {
+      font-size: 2em;
+      color: #495057;
+      width: 4em;
+      margin: 1em;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .iconfont-name {
+      font-family: 'Roboto Slab';
+      font-size: .5em;
+      color: #adb5bd;
+      margin-top: 0.25em;
+    }
+
+    .iconfont-unicode {
+      background-color: #adb5bd;
+      color: #fff;
+      font-size: 0.375em;
+      line-height: 2;
+      border-radius: 1em;
+      margin-top: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>
+    <%= fontName %>
+  </h1>
+  <ul class="iconfont-list">
+    <% _.each(glyphs, function(glyph) { %>
+    <li class="iconfont-list-item">
+      <i aria-hidden="true" class="<%= className %> <%= className %>--<%= glyph.name %>"></i>
+      <span class="iconfont-name">
+        <%= glyph.name %></span>
+        <span class="iconfont-unicode">
+          Unicode: <%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>
+        </span>
+    </li>
+    <% }); %>
+  </ul>
+</body>
+
+</html>

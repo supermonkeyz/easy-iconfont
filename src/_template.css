@@ -1,0 +1,22 @@
+@font-face {
+	font-family: <%= fontName %>;
+	src: url('<%= fontPath %><%= fontName %>.woff2') format('woff2'),
+          url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+          url('<%= fontPath %><%= fontName %>.ttf') format('truetype');
+}
+
+.<%= className %>{
+	font-family: <%= fontName %>;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	display: inline-block;
+	line-height: 1;
+}
+
+<% _.each(glyphs, function(glyph) { %>.<%= className %>--<%= glyph.name %>:before { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>" }
+<% }); %>
