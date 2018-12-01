@@ -4,7 +4,9 @@ Easy generate font icons automatically with Gulp
 
 # Installation
 
+```
 npm install
+```
 
 # Basic Usage
 
